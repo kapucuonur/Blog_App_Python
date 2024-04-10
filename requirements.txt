@@ -1,0 +1,14 @@
+asgiref
+django
+Pillow
+sqlparse
+tzdata
+django-extensions
+python-dotenv
+whitenoise
+gunicorn
+psycopg2-binary
+dj-database-url
+python-decouple
+cloudinary
+django-cloudinary-storage
