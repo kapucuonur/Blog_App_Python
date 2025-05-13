@@ -4,3 +4,7 @@ Pillow
 sqlparse
 tzdata
 django-extensions
+python-dotenv
+whitenoise
+gunicorn
+psycopg2-binary
