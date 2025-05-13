@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 if not ALLOWED_HOSTS or ALLOWED_HOSTS == ['']:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['.onrender.com','localhost', '127.0.0.1']
 
 # ========================
 # Path Configurations
@@ -111,9 +111,10 @@ USE_TZ = True
 # ========================
 # Static & Media Files
 # ========================
-STATIC_URL = "/static/"
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [STATIC_DIR]
+
 
 # Use simpler storage if source maps are causing issues
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
