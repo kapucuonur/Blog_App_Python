@@ -13,10 +13,11 @@ import os
 
 def env_test(request):
     return JsonResponse({
-        "db_url": os.getenv("DATABASE_URL"),
-        "cloud_name": os.getenv("CLOUD_NAME"),
-        "debug": os.getenv("DEBUG"),
+        "db_url": os.getenv("DATABASE_URL", "not found"),
+        "cloud_name": os.getenv("CLOUD_NAME", "not found"),
+        "debug": os.getenv("DEBUG", "not found"),
     })
+
 
 
 
