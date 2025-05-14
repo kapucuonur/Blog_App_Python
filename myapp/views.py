@@ -7,6 +7,20 @@ from django.conf import settings
 from .models import *
 
 from .models import Comment,Post
+
+from django.http import JsonResponse
+import os
+
+def env_test(request):
+    return JsonResponse({
+        "db_url": os.getenv("DATABASE_URL"),
+        "cloud_name": os.getenv("CLOUD_NAME"),
+        "debug": os.getenv("DEBUG"),
+    })
+
+
+
+
 # Create your views here.
 def index(request):
     return render(request,"index.html",{
@@ -178,3 +192,4 @@ def contact_us(request):
         context['message']=f"Dear {name}, Thanks for your time!"
 
     return render(request,"contact.html")
+
