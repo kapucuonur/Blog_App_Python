@@ -130,6 +130,14 @@
         <textarea class="form-control" name="content" required>{{post.content}}</textarea>
         <label for="" class="form-label">Category</label>
         <input type="text" class="form-control" name="category" value="{{post.category}}" required>
+
+        <label for="" class="form-label mt-3">Image</label>
+        <div class="mb-3">
+          {% if post.image %}
+          <p class="small text-muted">Current: {{ post.image.url }}</p>
+          {% endif %}
+          <input type="file" class="form-control" name="image">
+        </div>
         <button class="btn">Update Post</button>
         <br>
         {% for message in messages %}

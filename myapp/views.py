@@ -169,6 +169,10 @@ def editpost(request,id):
             post.postname = postname
             post.content = content
             post.category = category
+
+            if 'image' in request.FILES:
+                post.image = request.FILES['image']
+
             post.save()
         except:
             print("Error")
