@@ -124,8 +124,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-# Use simpler storage if source maps are causing issues
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = MEDIA_DIR
@@ -157,7 +155,14 @@ WHITENOISE_MANIFEST_STRICT = False  # Helps with Bootstrap source maps
 # ========================
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
 CLOUDINARY_STORAGE = {
