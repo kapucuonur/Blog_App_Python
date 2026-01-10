@@ -39,7 +39,6 @@ MEDIA_DIR = os.path.join(BASE_DIR, "media")
 # Application Definition
 # ========================
 INSTALLED_APPS = [
-    'cloudinary_storage', # Must be at the top
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",  # For development with whitenoise
     "myapp",
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -149,7 +149,7 @@ if not DEBUG:
 # Whitenoise Configuration
 # ========================
 WHITENOISE_MAX_AGE = 31536000  # 1 year cache
-WHITENOISE_USE_FINDERS = True
+# WHITENOISE_USE_FINDERS = True
 WHITENOISE_MANIFEST_STRICT = False  # Helps with Bootstrap source maps
 
 # ========================
@@ -162,13 +162,13 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
 
 # Legacy support for older libs/Django versions
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 CLOUDINARY_STORAGE = {
