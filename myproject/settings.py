@@ -83,8 +83,16 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 # ========================
 # Database Configuration
 # ========================
+try:
+    # Attempt to parse DATABASE_URL, falling back to sqlite if not set
+    db_config = dj_database_url.config(default='sqlite:///db.sqlite3')
+except Exception:
+    # If DATABASE_URL is set but invalid (e.g., during build), fall back to sqlite
+    print("Warning: DATABASE_URL parsing failed. Falling back to SQLite.")
+    db_config = dj_database_url.parse('sqlite:///db.sqlite3')
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': db_config
 }
 
 
