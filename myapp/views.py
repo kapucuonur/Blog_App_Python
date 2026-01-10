@@ -11,11 +11,14 @@ from .models import Comment,Post
 from django.http import JsonResponse
 import os
 
+from django.core.files.storage import default_storage
+
 def env_test(request):
     return JsonResponse({
         "db_url": os.getenv("DATABASE_URL", "not found"),
         "cloud_name": os.getenv("CLOUD_NAME", "not found"),
         "debug": os.getenv("DEBUG", "not found"),
+        "storage_backend": str(default_storage.__class__),
     })
 
 

@@ -37,6 +37,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, "media")
 # Application Definition
 # ========================
 INSTALLED_APPS = [
+    'cloudinary_storage', # Must be at the top
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -46,7 +47,6 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",  # For development with whitenoise
     "myapp",
     'cloudinary',
-    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
