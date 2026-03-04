@@ -201,3 +201,6 @@ def contact_us(request):
 
     return render(request,"contact.html")
 
+def ping(request):
+    return JsonResponse({"status": "alive"})
+
