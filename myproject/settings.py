@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Environment Configuration
 # ========================
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ['blog.trihonor.com', 'coachonurai.com', 'localhost', '127.0.0.1', '192.168.1.116']
+DEBUG = True
+ALLOWED_HOSTS = ['blog.trihonor.com', '192.168.1.116', 'localhost']
 
 # ========================
 # Path Configurations
@@ -134,9 +134,9 @@ MEDIA_ROOT = MEDIA_DIR
 if not DEBUG:
     # HTTPS Settings
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
     SECURE_HSTS_SECONDS = 0  # 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = False
     SECURE_HSTS_PRELOAD = False
