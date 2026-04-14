@@ -182,7 +182,10 @@ if DEBUG:
     try:
         hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
         INTERNAL_IPS = [ip[:-1] + "1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
-        INSTALLED_APPS += ['debug_toolbar']
-        MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
-    except:
+    except Exception:
         INTERNAL_IPS = ["127.0.0.1"]
+    
+    if 'debug_toolbar' not in INSTALLED_APPS:
+        INSTALLED_APPS += ['debug_toolbar']
+    if 'debug_toolbar.middleware.DebugToolbarMiddleware' not in MIDDLEWARE:
+        MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
