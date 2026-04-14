@@ -23,7 +23,8 @@ from myapp.views import env_test
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include("myapp.urls")),
-    path('env-test/', env_test)
+    path('env-test/', env_test),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
   
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  
