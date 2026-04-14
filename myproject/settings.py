@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ========================
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
-ALLOWED_HOSTS = ['blog.trihonor.com', '192.168.1.116', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 # ========================
 # Path Configurations
