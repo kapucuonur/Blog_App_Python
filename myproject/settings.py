@@ -24,9 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ========================
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-if not ALLOWED_HOSTS or ALLOWED_HOSTS == ['']:
-    ALLOWED_HOSTS = ['.onrender.com','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['blog.trihonor.com', 'coachonurai.com', 'localhost', '127.0.0.1', '192.168.1.116']
 
 # ========================
 # Path Configurations
