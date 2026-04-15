@@ -9,3 +9,6 @@
 /staticfiles/
 db.sqlite3
 .DS_Store
+__pycache__/
+*.json
+datayedek.json
