@@ -26,11 +26,11 @@ A full-featured blogging application built with Django and Bootstrap. This platf
 
 ## 🛠️ Tech Stack
 
--   **Backend**: [Django](https://www.djangoproject.com/) (Python)
+-   **Backend**: [Django](https://www.djangoproject.com/) (Python API & Backend Server)
 -   **Frontend**: HTML5, CSS3, [Bootstrap 5](https://getbootstrap.com/)
--   **Database**: PostgreSQL (Production) / SQLite (Development)
+-   **Database**: Self-hosted PostgreSQL (Production) / SQLite (Development)
 -   **Media Storage**: [Cloudinary](https://cloudinary.com/)
--   **Deployment**: Self-hosted on Raspberry Pi via Docker & Cloudflare Tunnels
+-   **Deployment**: Self-hosted on a Raspberry Pi 5 Server via Docker & Cloudflare Tunnels
 
 ## ⚙️ Installation & Local Development
 
@@ -95,9 +95,9 @@ python manage.py runserver
 
 Visit `http://127.0.0.1:8000` in your browser.
 
-## 🌍 Self-Hosting (Docker & Raspberry Pi)
+## 🌍 Self-Hosting (Docker & Raspberry Pi 5)
 
-This project is self-hosted on a Raspberry Pi using Docker Compose and exposed publicly via a Cloudflare Tunnel — no open router ports required.
+This project is entirely self-hosted on a custom Raspberry Pi 5 server architecture using Docker Compose. It is exposed publicly via a Cloudflare Tunnel — no open router ports required.
 
 ### 1. Docker Compose Setup
 
