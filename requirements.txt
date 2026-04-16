@@ -11,5 +11,4 @@ psycopg2-binary
 dj-database-url
 python-decouple
 cloudinary
-django-cloudinary-storage
-supabase
+django-cloudinary-storage
